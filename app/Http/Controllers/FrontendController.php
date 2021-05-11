@@ -7,12 +7,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Enjoythetrip\Interfaces\FrontendRepositoryInterface;
 use Illuminate\Http\Request;
-use App\Enjoythetrip\Repositories\FrontendRepository;
 
 class FrontendController extends Controller
 {
-    public function __construct(FrontendRepository $repository)
+    public function __construct(FrontendRepositoryInterface $repository)
     {
         $this->fR = $repository;
     }
@@ -26,7 +26,6 @@ class FrontendController extends Controller
 
     public function article()
     {
-       
         return view('frontend.article');
     }
 
