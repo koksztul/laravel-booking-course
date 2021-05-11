@@ -15,17 +15,13 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('day_in'); /* Lecture 9 */
-            $table->date('day_out'); /* Lecture 9 */
-            $table->boolean('status'); /* Lecture 9 */
-            $table->bigInteger('user_id')->unsigned(); /* Lecture 9 */
-            $table->bigInteger('city_id')->unsigned(); /* Lecture 9 */
-            $table->bigInteger('room_id')->unsigned(); /* Lecture 9 */
+            $table->date('day_in');
+            $table->date('day_out');
+            $table->boolean('status');
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('city_id')->unsigned();
+            $table->bigInteger('room_id')->unsigned();
 
-            $table->foreign('room_id')
-                ->references('id')
-                ->on('rooms')
-                ->onDelete('cascade');
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
@@ -33,7 +29,11 @@ class CreateReservationsTable extends Migration
             $table->foreign('city_id')
                 ->references('id')
                 ->on('cities')
-                ->onDelete('cascade'); /* Lecture 9 */
+                ->onDelete('cascade');
+            $table->foreign('room_id')
+                ->references('id')
+                ->on('rooms')
+                ->onDelete('cascade');
         });
     }
 

@@ -15,9 +15,9 @@ class CreateNotificationTable extends Migration
     {
         Schema::create('notification', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('content'); /* Lecture 8 */
-            $table->boolean('status'); /* Lecture 8 */
-            $table->bigInteger('user_id')->unsigned(); /* Lecture 8 */
+            $table->string('content');
+            $table->boolean('status');
+            $table->bigInteger('user_id')->unsigned();
             $table->boolean('shown')->default(false);
 
             $table->foreign('user_id')

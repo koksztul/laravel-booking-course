@@ -21,13 +21,13 @@ class CreateArticlesTable extends Migration
             $table->bigInteger('object_id')->unsigned();
             $table->dateTime('created_at');
 
-            $table->foreign('object_id')
-                ->references('id')
-                ->on('objects')
-                ->onDelete('cascade');
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
+                ->onDelete('cascade');
+            $table->foreign('object_id')
+                ->references('id')
+                ->on('objects')
                 ->onDelete('cascade');
         });
     }

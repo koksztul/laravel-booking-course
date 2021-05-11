@@ -21,7 +21,7 @@ class CreateLikeablesTable extends Migration
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
-                ->onDelete('cascade'); /* Lecture 8 */
+                ->onDelete('cascade');
         });
     }
 

@@ -15,10 +15,10 @@ class CreateObjectsTable extends Migration
     {
         Schema::create('objects', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name'); /* Lecture 8 */
-            $table->bigInteger('user_id')->unsigned(); /* Lecture 8 */
-            $table->bigInteger('city_id')->unsigned(); /* Lecture 8 */
-            $table->text('description'); /* Lecture 8 */
+            $table->string('name');
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('city_id')->unsigned();
+            $table->text('description');
 
             $table->foreign('city_id')
                 ->references('id')
